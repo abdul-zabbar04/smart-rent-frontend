@@ -1,0 +1,42 @@
+*{
+    box-sizing: border-box;
+}
+.hero{
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
+
+.details-img{
+    width: 50%;
+}
+
+.details-text{
+    width: 40%;
+}
+  
+@media (min-width: 320px) and (max-width: 767px) {
+
+/* CSS */
+.details-img{
+    width: 300px;
+}
+
+.details-text{
+    width: 300px;
+}
+
+}
+
+/* comment */
+
+.profile-img{
+    border-radius: 50%;
+}
+
+/* Hover effect on dropdown button */
+.nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
