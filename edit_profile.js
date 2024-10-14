@@ -29,7 +29,7 @@ const UpdateProfile= async (event)=>{
         const ProfileData = {
             first_name: formData.get("first_name"),
             last_name: formData.get("last_name"),
-            profile_img: profile_img
+            profile_image: profile_img
             };
     
         // Fetch the API to update the profile using PATCH
@@ -43,11 +43,8 @@ const UpdateProfile= async (event)=>{
         })
         .then(response => response.json())
         .then(data => {
-            if (data.success) {
-                document.getElementById('response-message').textContent = 'Profile updated successfully!';
-            } else {
-                document.getElementById('response-message').textContent = 'Error updating profile: ' + JSON.stringify(data.errors);
-            }
+            console.log(data, "this is my target data");
+            document.getElementById('response-message').textContent = 'Profile updated successfully!';
         })
         .catch(error => {
             // console.error('Error:', error);
