@@ -76,6 +76,7 @@ const loadPost= (category)=>{
     fetch(url)
     .then(res=>res.json())
     .then(data=>{
+      document.getElementById("home-no-content").innerText = "";
       if(data.length===0){
         document.getElementById("home-no-content").innerText = "No Contents";
       }
