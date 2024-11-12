@@ -8,7 +8,7 @@ const contactUs= async (event)=>{
         email: formData.get("email"),
         message: formData.get("message")
     }
-    fetch("http://127.0.0.1:8000/post/contact-us/",{
+    fetch("https://smart-rent.vercel.app/post/contact-us/",{
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
