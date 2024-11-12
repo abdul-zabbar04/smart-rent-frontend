@@ -47,6 +47,18 @@ const contactUs= async (event)=>{
         }
         
     })
+    .catch(error=>{
+        Toastify({
+            text: "Network error. Please try again later.",
+            duration: 3000,
+            gravity: "top",
+            position: "center", 
+            style: {
+                background: "red",
+                width: "100%",
+            },
+        }).showToast();
+    })
     
     
 }
