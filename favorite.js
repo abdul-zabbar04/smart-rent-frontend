@@ -14,10 +14,45 @@ const addFavorite= ()=>{
                 
             },
         })
-        .then(res=>res.json())
-        .then(data=>{
-            console.log(data);
+        .then(response=>{
+            if(response.status===201){
+                Toastify({
+                    text: "Successfully added to favorites.",
+                    duration: 3000,
+                    gravity: "top", 
+                    position: "right",
+                    style: {
+                        background: "green",
+                        width: "100%",
+                    },
+                }).showToast();
+            }
+
         })
-        .catch(err=>console.log(err))
+        .catch(error=>{
+            console.log(error);
+            Toastify({
+                text: "Network error. Please try again later.",
+                duration: 3000,
+                gravity: "top",
+                position: "center", 
+                style: {
+                    background: "red",
+                    width: "100%",
+                },
+            }).showToast();
+        })
+    }
+    else{
+        Toastify({
+            text: "Only logged-in users can add posts to favorites!",
+            duration: 4000,
+            gravity: "top", 
+            position: "right",
+            style: {
+                background: "red",
+                width: "100%",
+            },
+        }).showToast();
     }
 }

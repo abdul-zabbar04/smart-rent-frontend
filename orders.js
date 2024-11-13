@@ -14,10 +14,37 @@ const makeOrder= (event)=>{
         },
         body: JSON.stringify(),
     })
-    .then(res=>res.json())
-    .then(data=>{
-        console.log(data);
+    .then(response=>{
+        if(response.status===201){
+            Toastify({
+                text: "Rent request submitted! Please wait for the owner's response.",
+                duration: 3000,
+                gravity: "top", 
+                position: "right",
+                style: {
+                    background: "green",
+                    width: "100%",
+                },
+            }).showToast();
+            setTimeout(function() {
+                location.reload();
+            }, 3000);
+        }
     })
+    .catch(error=>{
+        console.log(error);
+        Toastify({
+            text: "Network error. Please try again later.",
+            duration: 3000,
+            gravity: "top",
+            position: "center", 
+            style: {
+                background: "red",
+                width: "100%",
+            },
+        }).showToast();
+    })
+    
 }
 
 

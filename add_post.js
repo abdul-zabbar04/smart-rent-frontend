@@ -54,7 +54,7 @@ const addPost= async (event)=>{
         .then((res) => res.json())
         .then((data) => {
         // alert("Post added successfully!");
-        window.location.href = "./index.html";
+        window.location.href = "./rent_advertisement.html";
         })
         .catch(error => console.error('Error:', error));
     }
@@ -195,9 +195,35 @@ const addComment= (event)=>{
       },
       body: JSON.stringify(commentData),
     })
-    .then(res=>res.json())
-    .then(data=>console.log(data))
-    .catch(err=>console.log(err))
+    .then(response=>{
+      if(response.status===201){
+        Toastify({
+          text: "Comment added successfully!",
+          duration: 3000,
+          gravity: "top", 
+          position: "center",
+          style: {
+              background: "green",
+              width: "100%",
+          },
+      }).showToast();
+      setTimeout(function() {
+        location.reload()
+    }, 3000);
+      }
+    })
+    .catch(error=>{
+      Toastify({
+          text: "Network error. Please try again later.",
+          duration: 3000,
+          gravity: "top",
+          position: "center", 
+          style: {
+              background: "red",
+              width: "100%",
+          },
+      }).showToast();
+    })
   }
   else{
     alert("You are not login user")

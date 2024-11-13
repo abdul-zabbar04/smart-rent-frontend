@@ -15,25 +15,43 @@ const handleRegister= (event) =>{
         },
         body: JSON.stringify(registraionData),
     })
-    .then(res=> res.json())
-    .then(data=>{
+    .then(response=>{
         const register_res=document.getElementById("register-res")
-        if(data.status==201){
+        register_res.innerText="";
+        if(response.status==201){
+            form.reset()
             register_res.style.color="green"
             register_res.innerText= "Registration successful! Please check your email."
         }
-        else if(data.username){
-            register_res.style.color="red"
-            register_res.innerText= data.username
-        }
-        else if(data.email){
-            register_res.style.color="red"
-            register_res.innerText= data.email
-        }
         else{
-            register_res.style.color="red"
-            register_res.innerText= data.error
+            response.json().then(data=>{
+                if(data.username){
+                    register_res.style.color="red";
+                    register_res.innerText+= data.username+"\n"
+                }
+                if(data.email){
+                    register_res.style.color="red";
+                    register_res.innerText+= data.email+"\n"
+                }
+                if(data.error){
+                    register_res.style.color="red";
+                    register_res.innerText+= data.error+"\n"
+                }
+            })
         }
+        
+    })
+    .catch(error=>{
+        Toastify({
+            text: "Network error. Please try again later.",
+            duration: 3000,
+            gravity: "top",
+            position: "center", 
+            style: {
+                background: "red",
+                width: "100%",
+            },
+        }).showToast();
     })
 }
 
@@ -60,11 +78,22 @@ const handleLogin= (event) =>{
             window.location.href= "./index.html"
         }
         else{
-            document.getElementById("login-error").innerText="Login Failed! Not Founded"
+            document.getElementById("login-error").innerText="Login Failed! Not Found."
             // console.log("invalid password or username");
         }
     })
-    .catch(err=> console.log("Login error", err));
+    .catch(error=>{
+        Toastify({
+            text: "Network error. Please try again later.",
+            duration: 3000,
+            gravity: "top",
+            position: "center", 
+            style: {
+                background: "red",
+                width: "100%",
+            },
+        }).showToast();
+    });
 }
 
 const handleLogout= ()=>{
