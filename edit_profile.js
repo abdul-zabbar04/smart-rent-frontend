@@ -5,6 +5,7 @@ const UpdateProfile= async (event)=>{
     const token= localStorage.getItem("authToken")
     const profileImg= document.getElementById("profile_image").files[0]
     let profile_img='';
+    let ProfileData= '';
     if(token){
         if(profileImg){
             const imgFormData = new FormData();
@@ -20,17 +21,22 @@ const UpdateProfile= async (event)=>{
             const imgbbData = await imgbbResponse.json();
             if (imgbbData.status === 200) {
                 profile_img = imgbbData.data.url;
+                ProfileData = {
+                    first_name: formData.get("first_name"),
+                    last_name: formData.get("last_name"),
+                    profile_image: profile_img
+                    };
                 } else {
                 alert('Image upload failed!');
                 return;
             }
         }
-        // console.log(profile_img,"this is proimg");
-        const ProfileData = {
+        else{
+            ProfileData = {
             first_name: formData.get("first_name"),
             last_name: formData.get("last_name"),
-            profile_image: profile_img
             };
+        }
     
         // Fetch the API to update the profile using PATCH
         fetch('https://smart-rent.vercel.app/api/user/update/', {
@@ -69,7 +75,7 @@ const editProfileLoad= ()=>{
         .then(data=>{
             // console.log(data.profile_image);
             document.getElementById('first_name').value = data.first_name;
-            document.getElementById('last_name').value = data.last_name;            
+            document.getElementById('last_name').value = data.last_name;
         })
     }
     else{

@@ -142,6 +142,7 @@ const changePassword= (event)=>{
             if (data.message) {
                 responseMessage.textContent = data.message;
                 responseMessage.style.color = 'green';
+                form.reset()
             }  else {
                 if (data.old_password) {
                     responseMessage.textContent = data.old_password[0];

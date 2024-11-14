@@ -28,7 +28,11 @@ const confirmOrder=(order_id, post_id)=>{
             }
             
         })
-        .catch(err=>console.log(err))
+        .catch(err=>{
+            console.log(err)
+            confirm_message.style.color= "red";
+            confirm_message.innerText= "Internet Connection Failed!"
+        })
     }
     
 }
