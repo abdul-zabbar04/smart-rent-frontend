@@ -3,7 +3,7 @@ const Categories_load = ()=>{
     fetch("https://smart-rent.vercel.app/filter/categories/")
     .then(res=>res.json())
     .then(data=>{
-        displayData(data);
+        displayData(data.results);
         const filter_category= document.getElementById("categories-items")
     })
     .catch(err=>console.log(err))
