@@ -26,7 +26,7 @@ const District_load = ()=>{
     fetch("https://smart-rent.vercel.app/filter/districts/")
     .then(res=>res.json())
     .then(data=>{
-        displayDistrict(data);
+        displayDistrict(data.results);
     })
     .catch(err=>console.log(err))
 }
