@@ -122,17 +122,15 @@ const loadPost = (category, page = 1) => {
 
           // Render posts
           postCard.innerHTML = data.results.map(element => `
-              <div class="card p-0 m-3 col-md-3 col-sm-12" style="width: 300px; height: 400px;">
-                  <img src="${element.image_url}" class="card-img-top" alt="..." style="width: 300px; height: 200px;">
-                  <div class="card-body">
-                      <h6 class="text-center mt-2">${element.title.slice(0, 25)}</h6>
-                      <h6 class="text-center">Bedrooms: ${element.bedrooms}, Bathrooms: ${element.bathrooms}</h6> 
-                      <h6 class="text-center">To-let from: ${element.available_from}</h6>
-                      <h6 class="text-center">Rent : ${element.rent} BDT </h6>
-                      <h6 class="text-center">District: ${element.district.toUpperCase()} </h6>
-                      <a href="./post_detail.html?id=${element.id}" class="btn btn-sm btn-primary w-75 mx-auto">Details</a>
-                  </div>
-              </div>
+            <div class="card p-0 m-3 col-md-3 col-sm-12" style="width: 280px; height: 350px;">
+            <img src="${element.image_url}" class="card-img-top" alt="Property Image" style="width: 100%; height: 180px; object-fit: cover;">
+            <div class="card-body text-center" style="height: 170px;">
+                <h6 class="mt-2">${element.title.slice(0, 25)}</h6>
+                <h6 class="text-primary">Rent: ${element.rent} BDT</h6>
+                <a href="./post_detail.html?id=${element.id}" class="btn btn-sm btn-primary mt-2 w-75">View Details</a>
+            </div>
+          </div>
+
           `).join('');
 
           // Update pagination buttons
