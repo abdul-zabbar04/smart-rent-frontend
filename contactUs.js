@@ -1,7 +1,7 @@
 const contactUs= async (event)=>{
     event.preventDefault()
     // console.log("contact us");
-    form= document.getElementById("contact-form")
+    const form= document.getElementById("contact-form")
     formData= new FormData(form)
     const postData={
         name: formData.get("name"),

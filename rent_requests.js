@@ -1,4 +1,8 @@
 const rent_requests_card= document.getElementById("all-rent-requests")
+function formatTime(timestamp) {
+    let date = new Date(timestamp);
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+}
 const loadRentRequests= ()=>{
     token= localStorage.getItem("authToken")
     if(token){
@@ -23,7 +27,8 @@ const loadRentRequests= ()=>{
                 <td>${element.post_title}</td>
                 <td>${element.status}</td>
                 <td><a href=${element.post_detail_link} class="btn btn-success btn-sm">Go</a></td>
-                <td>${element.ordered_time}</td>
+                <td>${element.ordered_time.split('T')[0]}</td> 
+                <td>${formatTime(element.ordered_time)}</td>
               </tr>
                 `
                 

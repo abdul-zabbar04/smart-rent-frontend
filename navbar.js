@@ -1,7 +1,9 @@
 fetch('navbar.html')
 .then(res=>res.text())
 .then(data=>{
-    document.getElementById("navbar").innerHTML=data
+    const navbar= document.getElementById("navbar")
+    navbar.classList.add("fixed-top");
+    navbar.innerHTML=data
 
     // assign login logout signup, profile page link
 
@@ -11,16 +13,16 @@ fetch('navbar.html')
     if(token){
         navbar_auth.innerHTML=
         `
-        <a href="./profile.html" class="btn btn-secondary">Profile</a>    
-        <a onclick=handleLogout() class="btn btn-secondary text-white">Logout</a>
+        <a href="./profile.html" class="btn btn-outline-light mx-1">Profile</a>    
+        <a onclick=handleLogout() class="btn btn-outline-light mx-1 text-white">Logout</a>
         `
         
     }
     else{
         navbar_auth.innerHTML=
         `
-        <a href="./login.html" class="btn btn-secondary">Login</a>
-        <a href="./registration.html" class="btn btn-secondary">Sign up</a>
+        <a href="./login.html" class="btn btn-outline-light mx-1">Login</a>
+        <a href="./registration.html" class="btn btn-outline-light mx-1">Sign up</a>
         `
         
         

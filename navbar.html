@@ -1,49 +1,91 @@
-<nav class="navbar bg-body-tertiary">
-    <div class="container-fluid">
-      <a class="navbar-brand">
-        <img src='./static/navbarLogo.png' alt="Logo" width="130" height="24" class="d-inline-block align-text-top">
-      </a>
-      <div class="auth-container" id= "navbar-auth">
-        
-      </div>
+<!-- First Navbar (Logo + Auth Buttons) -->
+<nav class="navbar top-navbar">
+  <div class="container-fluid">
+    <a href="./index.html" class="navbar-brand">
+      <img src='./static/navbarLogo.png' alt="Logo" width="120" height="24" class="d-inline-block align-text-top">
+    </a>
+    <div class="auth-container" id="navbar-auth">
+      
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-secondary" >
-    <div class="container-fluid">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
-          </li>
-          <li class="nav-item" id="add-property" >
-            <a class="nav-link active" aria-current="page" href="./add_post.html">Add Property</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="./index.html#category-filter">Category Filter</a>
-          </li>
-          
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link active" id="navbarDropdown" role="button">
-              Dropdown
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
-          </li> -->
-        </ul>
-        <!-- <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form> -->
-        <a class="nav-link mx-2 active" href="./about.html">About Us</a>
-        <a class="nav-link mx-2 active" href="./contactUs.html">Contact Us</a>
-      </div>
+<!-- Second Navbar (Navigation) -->
+<nav class="navbar navbar-expand-lg navbar-dark secondary-navbar">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./index.html">Home</a>
+        </li>
+        <li class="nav-item" id="add-property">
+          <a class="nav-link text-white" href="./add_post.html">Add Property</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="./index.html#category-filter">Category Filter</a>
+        </li>
+      </ul>
+      <a class="nav-link mx-2 text-white" href="./about.html">About Us</a>
+      <a class="nav-link mx-2 text-white" href="./contactUs.html">Contact Us</a>
     </div>
-  </nav>
+  </div>
+</nav>
+
+<style>
+  /* First Navbar (Top) */
+  .top-navbar {
+    background-color: #5de776 !important;
+  }
+
+  /* Second Navbar (Navigation) */
+  .secondary-navbar {
+    background-color: #34495e !important; /* Slightly Lighter Navy Blue */
+  }
+
+  /* Buttons */
+  .btn-outline-light {
+    border-color: #ffffff; /* White border */
+    color: #ffffff; /* White text */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .btn-outline-light:hover {
+    background-color: #3498db; /* Bright Blue on hover */
+    border-color: #3498db;
+    color: #ffffff !important; /* White text on hover */
+  }
+
+  /* Navigation Links */
+  .nav-link {
+    color: #ffffff !important; /* White text */
+    transition: color 0.3s ease-in-out;
+  }
+
+  .nav-link:hover {
+    color: #f1c40f !important; /* Golden Yellow hover effect */
+  }
+
+  /* Active Link */
+  .nav-link.active {
+    color: #f1c40f !important; /* Golden Yellow for active link */
+    font-weight: bold;
+  }
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    background-color: #34495e !important; /* Matching secondary navbar color */
+    border: none;
+  }
+
+  .dropdown-item {
+    color: #ffffff !important; /* White text */
+  }
+
+  .dropdown-item:hover {
+    background-color: #3498db !important; /* Bright Blue on hover */
+    color: #ffffff !important;
+  }
+</style>

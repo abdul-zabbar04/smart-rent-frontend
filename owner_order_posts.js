@@ -1,4 +1,8 @@
 const owner_ordered_posts= document.getElementById("owner-ordered-posts")
+function formatTime(timestamp) {
+    let date = new Date(timestamp);
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+}
 const loadOwnerOrderedPosts= ()=>{
     token= localStorage.getItem("authToken")
     if(token){
@@ -23,9 +27,14 @@ const loadOwnerOrderedPosts= ()=>{
                 <th scope="row"> ${element.id} </th>
                 <th scope="row"> ${element.post} </th>
                 <td>${element.post_title}</td>
-                <td>${element.ordered_time}</td>
+                <td>${element.ordered_time.split('T')[0]}</td> 
+                <td>${formatTime(element.ordered_time)}</td>
                 <td>${element.status}</td>
-                <td><a onclick="confirmOrder('${element.id}', '${element.post}')" class="btn btn-success btn-sm">Confirm</a></td>
+                <td>
+                <a onclick="confirmOrder('${element.id}', '${element.post}')" class="btn btn-sm ${element.status === 'Pending' ? 'btn-success' : 'btn-secondary'}">
+                    ${element.status === 'Pending' ? 'Confirm' : 'Confirmed'}
+                </a>
+                </td>
               </tr>
                 `
             });
