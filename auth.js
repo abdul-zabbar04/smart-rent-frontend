@@ -55,46 +55,62 @@ const handleRegister= (event) =>{
     })
 }
 
-const handleLogin= (event) =>{
+const handleLogin = (event) => {
     event.preventDefault();
-    const form= document.getElementById("login-form")
-    const form_data= new FormData(form)
-    const loginData= {
+
+    const form = document.getElementById("login-form");
+    const form_data = new FormData(form);
+    const loginButton = document.querySelector('button[type="submit"]');
+    const loginError = document.getElementById("login-error");
+
+    const loginData = {
         username: form_data.get("username"),
         password: form_data.get("password")
-    }
-    fetch("https://smart-rent.vercel.app/account/api-auth/login/",{
+    };
+
+    // Clear previous error messages
+    loginError.innerText = "";
+
+    // Show "Logging in..." and disable button
+    loginButton.innerText = "Logging in...";
+    loginButton.disabled = true;
+
+    fetch("https://smart-rent.vercel.app/account/api-auth/login/", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
         body: JSON.stringify(loginData),
     })
-    .then(res=>res.json())
-    .then(data=>{
-        if(data.token){
+    .then(res => res.json())
+    .then(data => {
+        if (data.token) {
             localStorage.setItem("authToken", data.token);
             localStorage.setItem("user_id", data.user_id);
-            window.location.href= "./index.html"
-        }
-        else{
-            document.getElementById("login-error").innerText="Login Failed! Not Found."
-            // console.log("invalid password or username");
+            window.location.href = "./index.html"; // Redirect after login
+        } else {
+            loginError.innerText = "Login Failed! Not Found.";
+            loginButton.innerText = "Login";  // Restore button text
+            loginButton.disabled = false; // Re-enable button
         }
     })
-    .catch(error=>{
+    .catch(error => {
+        loginButton.innerText = "Login";  // Restore button text
+        loginButton.disabled = false; // Re-enable button
+
         Toastify({
             text: "Network error. Please try again later.",
             duration: 3000,
             gravity: "top",
-            position: "center", 
+            position: "center",
             style: {
                 background: "red",
                 width: "100%",
             },
         }).showToast();
     });
-}
+};
+
 
 const handleLogout= ()=>{
     // console.log('hello');
@@ -160,4 +176,11 @@ const changePassword= (event)=>{
             document.getElementById('response-message').textContent = 'An error occurred.';
         });
     }
+}
+
+const autoLogin= (event)=>{
+    event.preventDefault();
+    console.log("Credentials");
+    const username= document.getElementById("username").value= "devid"
+    const password= document.getElementById("password").value= "12345"
 }
