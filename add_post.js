@@ -72,13 +72,16 @@ const paginationDisplay= document.getElementById("pagination-display");
 let currentPage = 1;
 let categoryWiseFilter = null;
 
-const loadPost = (category, page = 1) => {
+const loadPost = (category=null, page = 1, district= null) => {
     let url;
     
     // For category filtering, if no category, use base URL, otherwise add category
     if (category) {
         url = `https://smart-rent.vercel.app/filter/category/${category}/`;
-    } else {
+    } else if(district){
+      url = `https://smart-rent.vercel.app/filter/district/${district}/`;
+
+    }else {
         url = `https://smart-rent.vercel.app/post/list/`;
     }
 

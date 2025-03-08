@@ -54,10 +54,23 @@
         <div class="card-body text-center">
             <h6 class="card-title">All</h6>
         </div>
+      </div>      
     </div>
 
-            
-    </div>
+    <!--Search Bar District wise-->
+    <h2 class="text-center mb-4">Search Posts by District</h2>
+    <div class="d-flex justify-content-center mb-3 mx-3">
+      <div class="input-group" style="max-width: 500px; width: 100%;">
+          <input type="text" id="searchInput" class="form-control" placeholder="Type a district name..." style="border-radius: 0.25rem 0 0 0.25rem;">
+          <button class="btn btn-primary" id="searchButton" onclick="searchPosts(event)" style="border-radius: 0 0.25rem 0.25rem 0; margin-left: -1px;">
+              <i class="fas fa-search"></i>
+          </button>
+      </div>
+  </div>
+  
+
+
+
     <!-- Post Title -->
     <h3 id="all-posts" class="text-center mt-5">House Rent Posts</h3>
     <!-- Post List -->
@@ -88,6 +101,7 @@
 
 
     <script src="./navbar.js"></script>
+    <script src="./searchedPosts.js"></script>
     <script src="./auth.js"></script>
     <script src="./add_post.js"></script>
     <script src="./category_filter.js"></script>
