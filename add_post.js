@@ -77,11 +77,13 @@ const loadPost = (category=null, page = 1, district= null) => {
     
     // For category filtering, if no category, use base URL, otherwise add category
     if (category) {
+        searchedData= document.getElementById("searchInput").value= "";
         url = `https://smart-rent.vercel.app/filter/category/${category}/`;
     } else if(district){
       url = `https://smart-rent.vercel.app/filter/district/${district}/`;
 
     }else {
+        searchedData= document.getElementById("searchInput").value= "";
         url = `https://smart-rent.vercel.app/post/list/`;
     }
 
