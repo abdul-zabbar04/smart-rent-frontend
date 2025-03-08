@@ -73,6 +73,14 @@
 
     <!-- Post Title -->
     <h3 id="all-posts" class="text-center mt-5">House Rent Posts</h3>
+    <div class="d-flex justify-content-end align-items-center mb-3 mx-5 px-2">
+      <select id="sortSelect" class="form-select w-auto" onchange="loadPost()">
+        <option value="">Sort by</option>
+        <option value="rent">Low to High</option>
+        <option value="-rent">High to Low</option>
+      </select>
+    </div>
+    
     <!-- Post List -->
     <div id="post-card" class="container-fluid d-flex flex-wrap justify-content-center gap-1"></div>
    <!-- Spinner -->
