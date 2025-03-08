@@ -122,7 +122,7 @@ const loadPost = (category, page = 1) => {
 
           // Render posts
           postCard.innerHTML = data.results.map(element => `
-            <div class="card p-0 m-3 col-md-3 col-sm-12" style="width: 280px; height: 350px;">
+            <div class="card p-0 m-2 col-md-3 col-sm-12" style="width: 214px; height: 350px;">
             <img src="${element.image_url}" class="card-img-top" alt="Property Image" style="width: 100%; height: 180px; object-fit: cover;">
             <div class="card-body text-center" style="height: 170px;">
                 <h6 class="mt-2">${element.title.slice(0, 25)}</h6>
