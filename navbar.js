@@ -13,16 +13,16 @@ fetch('navbar.html')
     if(token){
         navbar_auth.innerHTML=
         `
-        <a href="./profile.html" class="btn btn-outline-light mx-1">Profile</a>    
-        <a onclick=handleLogout() class="btn btn-outline-light mx-1 text-white">Logout</a>
+        <a href="./profile.html" class="btn btn-sm btn-outline-light mx-1">Profile</a>    
+        <a onclick=handleLogout() class="btn btn-sm btn-outline-light mx-1 text-white">Logout</a>
         `
         
     }
     else{
         navbar_auth.innerHTML=
         `
-        <a href="./login.html" class="btn btn-outline-light mx-1">Login</a>
-        <a href="./registration.html" class="btn btn-outline-light mx-1">Sign up</a>
+        <a href="./login.html" class="btn btn-sm btn-outline-light mx-1">Login</a>
+        <a href="./registration.html" class="btn btn-sm btn-outline-light mx-1">Sign up</a>
         `
         
         
