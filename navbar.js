@@ -8,6 +8,7 @@ fetch('navbar.html')
     // assign login logout signup, profile page link
 
     const navbar_auth= document.getElementById("navbar-auth")
+    const addProperty= document.getElementById("add-property")
     
     const token= localStorage.getItem("authToken")
     if(token){
@@ -15,6 +16,9 @@ fetch('navbar.html')
         `
         <a href="./profile.html" class="btn btn-sm btn-outline-light mx-1">Profile</a>    
         <a onclick=handleLogout() class="btn btn-sm btn-outline-light mx-1 text-white">Logout</a>
+        `
+        addProperty.innerHTML= `
+        <a class="nav-link text-white" href="./add_post.html">Add Property</a>
         `
         
     }
