@@ -40,3 +40,42 @@
     opacity: 1;
     visibility: visible;
 }
+
+
+/* This is the powered by section design starting point */
+.powered-by-container {
+    text-align: center;
+    background: #f9f9f9;
+    padding: 20px;
+}
+
+.logo-slider {
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    width: 100%;
+}
+
+.logo-track {
+    display: flex;
+    width: 200%;
+    animation: scroll 15s linear infinite;
+}
+
+.logo-track img {
+    width: 120px;  /* Set the same width as Google Play & Firebase */
+    height: 40px;  /* Set the same height as Google Play & Firebase */
+    object-fit: contain; /* Ensure images scale properly */
+    margin: 0 20px;
+    display: inline-block;
+}
+
+/* Animation for scrolling */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
