@@ -146,6 +146,7 @@ const loadPost = (category = null, page = 1, district = null) => {
             <div class="card-body text-center" style="height: 170px;">
                 <h6 class="mt-2">${element.title.slice(0, 25)}</h6>
                 <h6 class="text-primary">Rent: ${element.rent} BDT</h6>
+                <h6 class="text-primary">District: ${element.district}</h6>
                 <a href="./post_detail.html?id=${element.id}" class="btn btn-sm btn-primary mt-2 w-75">View Details</a>
             </div>
           </div>
